@@ -61,6 +61,9 @@ lagged treatment effects and panel selection.
 
 tbd
 
+Replication material of Ludwig, V., & Brüderl, J. (2018) "Is There a Male Marital Wage Premium? New Evidence from the United States" cam be obtained from:
+<https://github.com/volkerludwig/Replication-material-for-Ludwig-Bruederl-ASR2018>
+
 ## Replication: example 2
 
 tbd
