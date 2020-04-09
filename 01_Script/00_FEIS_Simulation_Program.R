@@ -1,3 +1,12 @@
+#### ---------------------------------------------------------------####
+# Simluation Program
+# R Script for article 
+# Rüttenauer T. and Ludwig V. 2020. Fixed Effects Individual Slopes: 
+# Accounting and Testing for Heterogeneous Effects in Panel Data 
+# or other Multilevel Models. Sociological Methods and Research
+#### ---------------------------------------------------------------####
+
+
 ###########################
 #### Utility Functions ####
 ###########################

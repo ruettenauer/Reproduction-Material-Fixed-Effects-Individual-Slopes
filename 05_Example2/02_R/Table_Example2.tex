@@ -1,0 +1,41 @@
+
+\begin{table}[t]
+\caption{Example 2. Dep var: cognitive test scores}
+\begin{center}
+\begin{tabular}{l D{.}{.}{2.4} D{.}{.}{2.4} D{.}{.}{2.4} D{.}{.}{2.4} D{.}{.}{2.4} D{.}{.}{2.4} }
+\hline
+ & \multicolumn{3}{c}{Orig. Sample} & \multicolumn{3}{c}{Subsample} \\ 
+\cmidrule(r){2-4} \cmidrule(l){5-7} 
+& \multicolumn{1}{c}{Rep} & \multicolumn{1}{c}{FE} & \multicolumn{1}{c}{FEIS} & \multicolumn{1}{c}{FE 2} & \multicolumn{1}{c}{RIRS 2} & \multicolumn{1}{c}{FEIS 2} \\
+& \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)} \\
+\hline
+Head Start            &           &         &             &            &             &             \\
+                      &           &         &             &            &             &             \\
+\quad Ages 5-6        & 0.143     & 0.133   & 0.350^{**}  & 0.148      & 0.176^{*}   & 0.368^{**}  \\
+                      & (0.085)   & (0.087) & (0.115)     & (0.103)    & (0.086)     & (0.124)     \\
+\quad Ages 7-10       & 0.132^{*} & 0.117   & 0.319^{***} & 0.105      & 0.133^{*}   & 0.330^{***} \\
+                      & (0.059)   & (0.060) & (0.096)     & (0.066)    & (0.054)     & (0.091)     \\
+\quad Ages 11-14      & 0.054     & 0.029   & 0.241^{*}   & 0.041      & 0.070       & 0.293^{**}  \\
+                      & (0.061)   & (0.061) & (0.102)     & (0.066)    & (0.053)     & (0.100)     \\
+Other Preschool       &           &         &             &            &             &             \\
+                      &           &         &             &            &             &             \\
+\quad Ages 5-6        & -0.081    & -0.105  & -0.095      & -0.062     & 0.007       & 0.037       \\
+                      & (0.084)   & (0.083) & (0.132)     & (0.166)    & (0.113)     & (0.270)     \\
+\quad Ages 7-10       & 0.046     & 0.029   & 0.009       & 0.000      & 0.066       & 0.092       \\
+                      & (0.064)   & (0.061) & (0.120)     & (0.118)    & (0.078)     & (0.254)     \\
+\quad Ages 11-14      & -0.023    & -0.040  & -0.060      & -0.024     & 0.037       & 0.080       \\
+                      & (0.069)   & (0.066) & (0.120)     & (0.120)    & (0.080)     & (0.255)     \\
+Pretreatment index    &           & 0.056   &             & 0.109^{**} & 0.156^{***} &             \\
+                      &           & (0.034) &             & (0.037)    & (0.036)     &             \\
+\hline
+R$^2$                 & \multicolumn{1}{c}{0.050}     & \multicolumn{1}{c}{0.020}   & \multicolumn{1}{c}{0.031}       & \multicolumn{1}{c}{0.027}      &             & \multicolumn{1}{c}{0.038}       \\
+Adj. R$^2$            & -0.099    & -0.115  & \multicolumn{1}{c}{0.027}       & -0.093     &             & \multicolumn{1}{c}{0.028}       \\
+Num. obs.             & \multicolumn{1}{c}{4687}      & \multicolumn{1}{c}{4646}    & \multicolumn{1}{c}{4646}        & \multicolumn{1}{c}{2102}       & \multicolumn{1}{c}{2102}        & \multicolumn{1}{c}{2102}        \\
+Num. groups: MotherID &           &         & \multicolumn{1}{c}{541}         &            & \multicolumn{1}{c}{211}         & \multicolumn{1}{c}{211}         \\
+\hline
+\multicolumn{7}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$. Robust standard errors in parentheses.}}
+\end{tabular}
+\label{table:example2}
+\end{center}
+\end{table}
+
