@@ -18,7 +18,7 @@
 
 
 //set working directory
-global xmpldir ""C:\work\Forschung\FEIS_Monte Carlo\11_FEIS_replication\05_Example2\01_Stata""
+global xmpldir ""
 cd $xmpldir
 
 

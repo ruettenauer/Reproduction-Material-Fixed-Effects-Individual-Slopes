@@ -57,9 +57,9 @@ loadfonts()
 # as setting different directories may be more complicated depending 
 # on the HPC operating system
 
-# On HPC you may need to specify externally. In this case comment out set wd
+# On HPC you may need to specify externally. In this case comment out setwd
 
-setwd("C:/work/Forschung/FEIS_Monte Carlo/11_FEIS_replication/02_Data")
+setwd("")
 
 
 ############################

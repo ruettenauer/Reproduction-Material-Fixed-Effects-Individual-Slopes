@@ -8,7 +8,6 @@
 
 
 
-
 ####################
 #### Example 2 #####
 ####################
@@ -25,11 +24,12 @@ library(lme4)
 library(haven)
 library(texreg)
 
-#### Load long data
+#### Set working directory
+setwd("")
 
-setwd("C:/work/Forschung/FEIS_Monte Carlo/11_FEIS_replication/05_Example2/02_R")
 
-# This dataset is created by the Stata dofile "01_Example2_hs.do"
+#### Load data
+# This dataset is created by the Stata dofile "01_Example2_hs.do" based on Demings replication files
 nlsy.df <- data.frame(haven::read_dta("../01_Stata/hs.dta"))
 
 
@@ -156,27 +156,27 @@ setMethod("extract", signature = className("feis", "feisr"),
           definition = feisr:::extract.feis)
 
 screenreg(list(rep.fe, head1.fe, head1.feis, head2.fe, head2.rs, head2.feis), digits = 3,
-          custom.model.names=c("Rep", "FE", "FEIS", "FE 2", "RERS 2", "FEIS 2"))
+          custom.model.names = c("Rep", "FE", "FEIS", "FE 2", "RERS 2", "FEIS 2"))
 
 ### Specify file name
 file <- "Table_Example2.tex"
 
 ### Save latex table
-tab <- texreg(l=list(rep.fe, head1.fe, head1.feis, head2.fe, head2.rs, head2.feis), 
+tab <- texreg(l = list(rep.fe, head1.fe, head1.feis, head2.fe, head2.rs, head2.feis), 
               # file = file,
               digits = 3, leading.zero = TRUE,
               stars = c(0.001, 0.01, 0.05),
               symbol = "\\cdot",
               caption = "Example 2. Dep var: cognitive test scores",
-              custom.coef.names=c("Ages 5-6", "Ages 7-10", "Ages 11-14",  
-                                  "Ages 5-6 ", "Ages 7-10 ", "Ages 11-14 ", 
-                                  "Pretreatment index"),
+              custom.coef.names = c("Ages 5-6", "Ages 7-10", "Ages 11-14",  
+                                    "Ages 5-6 ", "Ages 7-10 ", "Ages 11-14 ", 
+                                    "Pretreatment index"),
               groups = list("Head Start" = 1:3, "Other Preschool" = 4:6),
               custom.model.names = c("Rep", "FE", "FEIS", "FE 2", "RIRS 2", "FEIS 2"),
-              omit.coef="(year)|(AgeTest_Yr)|(Group_)|(_imp)|(_miss)|(Intercept)|(Male)",
+              omit.coef = "(year)|(AgeTest_Yr)|(Group_)|(_imp)|(_miss)|(Intercept)|(Male)",
               label = "table:example2",
               custom.note = "%stars. Robust standard errors in parentheses.",
-              dcolumn = TRUE, caption.above = TRUE, use.packages=FALSE,
+              dcolumn = TRUE, caption.above = TRUE, use.packages = FALSE, float.pos = "t",
               include.aic = FALSE, include.bic = FALSE,
               include.loglik = FALSE, include.variance = FALSE, include.rmse = FALSE)
 
@@ -184,10 +184,10 @@ tab <- texreg(l=list(rep.fe, head1.fe, head1.feis, head2.fe, head2.rs, head2.fei
 tab <- gsub("D[{].[}][{].[}][{][[:digit:]]+\\.*[[:digit:]]*[}]", "D{.}{.}{2.4}", tab)
 
 # Customize header
-oh <- "& \\multicolumn{1}{c}{Rep} & \\multicolumn{1}{c}{FE} & \\multicolumn{1}{c}{FEIS} & \\multicolumn{1}{c}{FE 2} & \\multicolumn{1}{c}{RIRS 2} & \\multicolumn{1}{c}{FEIS 2}"
+oh <- "& \\multicolumn{1}{c}{Rep} & \\multicolumn{1}{c}{FE} & \\multicolumn{1}{c}{FEIS} & \\multicolumn{1}{c}{FE 2} & \\multicolumn{1}{c}{RIRS 2} & \\multicolumn{1}{c}{FEIS 2} \\\\"
 nh <- paste0("& \\multicolumn{3}{c}{Orig. Sample} & \\multicolumn{3}{c}{Subsample} \\\\ \n",
              "\\cmidrule(r){2-4} \\cmidrule(l){5-7} \n",
-             oh,
+             oh, "\n",
              "& \\multicolumn{1}{c}{(1)} & \\multicolumn{1}{c}{(2)} & \\multicolumn{1}{c}{(3)} & \\multicolumn{1}{c}{(4)} & \\multicolumn{1}{c}{(5)} & \\multicolumn{1}{c}{(6)} \\\\")
 tab <- gsub(oh, nh, tab, fixed = TRUE)
 
@@ -232,6 +232,7 @@ bsht <- bsfeistest(head2.feis, type = "all", rep = 100, seed = 123)
 summary(bsht)
 
 
+
 ########################
 #### Output table 4 ####
 ########################
@@ -241,75 +242,75 @@ file <- "Spec_Example2.tex"
 
 
 ### Write latex table
-cat("\\begin{table}\n", file=file)
-cat("\\caption{Example 2. Specification tests}\n", file=file, append=T)
-cat("\\label{table:example2_spec}\n", file=file, append=T)
-cat("\\centering\n", file=file, append=T)
-cat("\\begin{tabular}{l D{.}{.}{2.3} D{.}{.}{2.0} D{.}{.}{2.6} }", file=file, append=T)
-cat("\\hline \n", file=file, append=T)
-cat(" & \\multicolumn{1}{c}{$\\chi^2$} & \\multicolumn{1}{c}{df} & \\multicolumn{1}{c}{P(> $\\chi^2$)}  \\\\ \n", file=file, append=T)
-cat("\\hline \n", file=file, append=T)
+cat("\\begin{table}\n", file = file)
+cat("\\caption{Example 2. Specification tests}\n", file = file, append = TRUE)
+cat("\\label{table:example2_spec}\n", file = file, append = TRUE)
+cat("\\centering\n", file = file, append = TRUE)
+cat("\\begin{tabular}{l D{.}{.}{2.3} D{.}{.}{2.0} D{.}{.}{2.6} }", file = file, append = TRUE)
+cat("\\hline \n", file = file, append = TRUE)
+cat(" & \\multicolumn{1}{c}{$\\chi^2$} & \\multicolumn{1}{c}{df} & \\multicolumn{1}{c}{P(> $\\chi^2$)}  \\\\ \n", file = file, append = TRUE)
+cat("\\hline \n", file = file, append = TRUE)
 
 # ART results
-cat("Artificial regression test \\\\ \n", file=file, append=T)
+cat("Artificial regression test \\\\ \n", file = file, append = TRUE)
 
 cat("FEIS vs. FE:", 
     format(unname(ht$wald_feis$result$chi2[1]), digits = 3, nsmall = 3), 
     format(unname(ht$wald_feis$result$chi2[2]), digits = 3),
-    format(unname(ht$wald_feis$result$chi2[3]), digits = 2, nsmall=3),
+    format(unname(ht$wald_feis$result$chi2[3]), digits = 2, nsmall = 3),
     sep = " & "
-    , file=file, append=T) 
-cat(" \\\\ \n", file=file, append=T) 
+    , file = file, append = TRUE) 
+cat(" \\\\ \n", file = file, append = TRUE) 
 
 cat("FE vs. RE:", 
     format(unname(ht$wald_fe$result$chi2[1]), digits = 3, nsmall = 3),  
     format(unname(ht$wald_fe$result$chi2[2]), digits = 3), 
     format(unname(ht$wald_fe$result$chi2[3]), digits = 2, nsmall = 3),  
     sep = " & "
-    , file=file, append=T) 
-cat(" \\\\ \n", file=file, append=T) 
+    , file = file, append = TRUE) 
+cat(" \\\\ \n", file = file, append = TRUE) 
 
 cat("FEIS vs. RE:", 
     format(unname(ht$wald_re$result$chi2[1]), digits = 3, nsmall = 3),  
     format(unname(ht$wald_re$result$chi2[2]), digits = 3), 
     format(unname(ht$wald_re$result$chi2[3]), digits = 2, nsmall = 3),  
     sep = " & "
-    , file=file, append=T) 
-cat(" \\\\ \n", file=file, append=T) 
+    , file = file, append = TRUE) 
+cat(" \\\\ \n", file = file, append = TRUE) 
 
 
 # BSH results
-cat(" \\\\ \n", file=file, append=T)
-cat("Bootstrapped Hausman test \\\\ \n", file=file, append=T)
+cat(" \\\\ \n", file = file, append = TRUE)
+cat("Bootstrapped Hausman test \\\\ \n", file = file, append = TRUE)
 
 cat("FEIS vs. FE:", 
     format(unname(bsht$wald_feis$result$chi2[1]), digits = 3, nsmall = 3), 
     format(unname(bsht$wald_feis$result$chi2[2]), digits = 3),
     format(unname(bsht$wald_feis$result$chi2[3]), digits = 1, nsmall = 1),
     sep = " & "
-    , file=file, append=T) 
-cat(" \\\\ \n", file=file, append=T) 
+    , file = file, append = TRUE) 
+cat(" \\\\ \n", file = file, append = TRUE) 
 
 cat("FE vs. RE:", 
     format(unname(bsht$wald_fe$result$chi2[1]), digits = 3, nsmall = 3),  
     format(unname(bsht$wald_fe$result$chi2[2]), digits = 3), 
     format(unname(bsht$wald_fe$result$chi2[3]), digits = 3, nsmall = 3),  
     sep = " & "
-    , file=file, append=T) 
-cat(" \\\\ \n", file=file, append=T) 
+    , file = file, append = TRUE) 
+cat(" \\\\ \n", file = file, append = TRUE) 
 
 cat("FEIS vs. RE:", 
     format(unname(bsht$wald_re$result$chi2[1]), digits = 3, nsmall = 3),  
     format(unname(bsht$wald_re$result$chi2[2]), digits = 3), 
     format(unname(bsht$wald_re$result$chi2[3]), digits = 2, nsmall = 2),  
     sep = " & "
-    , file=file, append=T) 
-cat(" \\\\ \n", file=file, append=T) 
+    , file = file, append = TRUE) 
+cat(" \\\\ \n", file = file, append = TRUE) 
 
 # End
-cat("\\hline\n", file=file, append=T)
-cat("\\end{tabular}\n", file=file, append=T)
-cat("\\end{table}\n", file=file, append=T)
+cat("\\hline\n", file = file, append = TRUE)
+cat("\\end{tabular}\n", file = file, append = TRUE)
+cat("\\end{table}\n", file = file, append = TRUE)
 
 
 
