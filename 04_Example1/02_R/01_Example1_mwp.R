@@ -102,7 +102,8 @@ summary(wages.re.rob)
 
 ### Estimate RE RS model
 wages.rs <- lmer(lnw ~ marry + enrol + yeduc + as.factor(dchild) + tenure + as.factor(yeargr) + exp + I(exp^2) +
-             (1 + exp + I(exp^2) | id), data = mwp.df)
+             (1 + exp + I(exp^2) | id), data = mwp.df,
+             control = lmerControl(optimizer = "bobyqa"))
 summary(wages.rs)
 
 

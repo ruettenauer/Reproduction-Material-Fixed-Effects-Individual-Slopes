@@ -139,9 +139,10 @@ summary(head2.feis)
 
 # Random Slopes model of head2
 head2.rs <- lmer(Test_std ~ HS_5to6 + HS_7to10 + HS_11to14 + Pre_5to6 + Pre_7to10 + Pre_11to14 +
-                   as.factor(year) + Group_5to6 + Group_7to10 + Group_11to14 + as.factor(AgeTest_Yr) +
-                   PreTreatIndex +
-                   (1 + PreTreatIndex | MotherID), data = nlsy2.df)
+                 as.factor(year) + Group_5to6 + Group_7to10 + Group_11to14 + as.factor(AgeTest_Yr) +
+                 PreTreatIndex +
+                 (1 + PreTreatIndex | MotherID), data = nlsy2.df,
+                 control = lmerControl(optimizer = "bobyqa"))
 summary(head2.rs)
 
 
@@ -205,6 +206,7 @@ tab <- gsub(tmp, tmp2, tab, fixed = TRUE)
 # Export
 write.table(tab, file = file,            
             col.names = FALSE, row.names = FALSE, quote = FALSE)
+
 
 
 #####################################
