@@ -7,8 +7,10 @@ This repository provides all materials for replication of results in
 
 > Rüttenauer T. and Ludwig V. (2020). “Fixed Effects Individual Slopes:
 > Accounting and Testing for Heterogeneous Effects in Panel Data or
-> other Multilevel Models”, *Sociological Methods and Research*,
+> Other Multilevel Models”, *Sociological Methods and Research*,
 > Forthcoming.
+
+Date: 2020-04-10
 
 ## Requirements
 
