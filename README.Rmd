@@ -50,7 +50,7 @@ install.packages("texreg")
 ```
 
 ## Replication: Monte Carlo simulations
-The R script named “00_FEIS_Simulation_Program.R” contains the simulation program (function *fesim*). The R script "00_FEIS_Simulation_Program_hpc.R" contains the equivalent function for parallelization on a high performance cluster.
+The R script named “00_FEIS_Simulation_Program.R” contains the simulation program (functions *fesim* and *fesim_bs*). The R script "00_FEIS_Simulation_Program_hpc.R" contains the equivalent function for parallelization on a high performance cluster.
 The R script “01_FEIS_Simulation_Main-Analysis.R” replicates the simulation results of the main paper. To run the replication files on a HPC, comment line 85 (loading local version of the program) and uncomment line 88 (loading the HPC version of the program). Furthermore, comment the working (line 57) directory, if specified in an external batch file. The script "02_FEIS_Simulation_Supplementary-Analyses.R" replicates the simulation results of the supplementary material. The batch files "01_runR.sl" and "02_runR.sl" can be used to run the analyses on a Slurm HPC.
 
 The folder “02\_Data” contains the results of individual simulation runs as performed and saved in the replication files.

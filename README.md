@@ -45,7 +45,7 @@ install.packages("texreg")
 ## Replication: Monte Carlo simulations
 
 The R script named “00\_FEIS\_Simulation\_Program.R” contains the
-simulation program (function *fesim*). The R script
+simulation program (functions *fesim* and *fesim\_bs*). The R script
 “00\_FEIS\_Simulation\_Program\_hpc.R” contains the equivalent
 function for parallelization on a high performance cluster. The R script
 “01\_FEIS\_Simulation\_Main-Analysis.R” replicates the simulation
