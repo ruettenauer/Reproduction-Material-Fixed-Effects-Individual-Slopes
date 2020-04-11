@@ -10,6 +10,8 @@ This repository provides all materials for replication of results in
 > Other Multilevel Models”, *Sociological Methods and Research*,
 > Forthcoming.
 
+Preprint on SocArXiv: <https://osf.io/preprints/socarxiv/k4rnu/>
+
 Date: 2020-04-10
 
 ## Requirements
